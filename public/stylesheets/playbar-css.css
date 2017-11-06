@@ -1,0 +1,233 @@
+.playbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-controls {
+  height: 70%;
+  color: gray;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 80px;
+}
+
+.play-controls i {
+  font-size: 24px;
+}
+
+.play-controls i:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.play-scroll-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.play-scroll-bar span {
+  font-size: 12px;
+}
+
+.play-scroll-bar progress {
+  margin: 0px 10px 0px 10px;
+  width: 500px;
+  height: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.play-scroll-bar progress:hover {
+  cursor: pointer;
+}
+
+progress::-webkit-progress-bar {
+  background: gray;
+  border-radius: 100px;
+}
+
+progress::-moz-progress-bar {
+  background: gray;
+  border-radius: 100px;
+}
+
+progress::-webkit-progress-value {
+  background: white;
+  border-radius: 100px;
+}
+
+progress::-moz-progress-value {
+  background: white;
+  border-radius: 100px;
+}
+
+.control-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 33%;
+  justify-content: space-between;
+}
+
+.play-icon {
+  size: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+.volume-control {
+  margin-right: 40px;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.volume-control i {
+  size: 24px;
+  color: gray;
+}
+
+#audio-play-button {
+  font-size: 36px;
+}
+
+#audio-pause-button {
+  font-size: 36px;
+}
+
+.now-playing-info {
+  display: flex;
+  margin-left: 20px;
+  width: 300px;
+  overflow: hidden;
+  border: 1px solid #353131;
+}
+
+.now-playing-spans {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.now-playing-spans span:first-child {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.now-playing-spans span:first-child {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.now-playing-spans span:last-child {
+  font-size: 12px;
+  color: gray;
+  font-family: 'Muli';
+}
+
+.now-playing-spans span:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.now-playing-info img {
+  height: 60px;
+  width: 60px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 80%;
+  margin: 3.95px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2.1px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: rgba(19, 16, 16, 0.59);
+  border-radius: 0px;
+  border: 0px solid rgba(1, 1, 1, 0);
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid rgba(0, 0, 0, 0);
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+  background: #d0d3da;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.95px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(33, 28, 28, 0.59);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 2.1px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: rgba(19, 16, 16, 0.59);
+  border-radius: 0px;
+  border: 0px solid rgba(1, 1, 1, 0);
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid rgba(0, 0, 0, 0);
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+  background: #d0d3da;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 2.1px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: rgba(5, 4, 4, 0.59);
+  border: 0px solid rgba(1, 1, 1, 0);
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: rgba(19, 16, 16, 0.59);
+  border: 0px solid rgba(1, 1, 1, 0);
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid rgba(0, 0, 0, 0);
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+  background: #d0d3da;
+  cursor: pointer;
+  height: 2.1px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: rgba(19, 16, 16, 0.59);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: rgba(33, 28, 28, 0.59);
+}

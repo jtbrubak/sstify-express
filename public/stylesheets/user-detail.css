@@ -1,0 +1,96 @@
+.user-header {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-header img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-nav {
+  margin-top: 15px;
+  color: gray;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-nav li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.user-nav li:hover {
+  color: white;
+}
+
+.selected-user-nav {
+  color: white;
+  border-bottom: 1px solid #1aff66;
+}
+
+.user-follow-button {
+  width: 110px;
+  border-radius: 50px;
+  font-family: 'VegurRegular';
+  color: white;
+  background-color: #40ad59;
+  border: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+.user-followed-playlists {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-family: 'Muli';
+  font-size: 16px;
+  width: 100%;
+}
+
+.user-followed-playlists ul {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: wrap;
+}
+
+.followed-playlist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.followed-playlist-item a {
+  display: flex;
+  color: gray;
+  align-items: center;
+  flex-direction: column;
+}
+
+.followed-playlist-item a:hover {
+  color: white;
+}
+
+.followed-playlist-item img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
