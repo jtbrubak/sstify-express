@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import browseCss from '../../../public/stylesheets/browse-css.css';
 
 class Browse extends React.Component {
 

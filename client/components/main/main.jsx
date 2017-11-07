@@ -1,6 +1,7 @@
 import React from 'react';
 import SidebarContainer from '../sidebar/sidebar_container';
 import PlaybarContainer from '../playbar/playbar_container';
+import authCss from '../../../public/stylesheets/auth-css.css';
 
 class Main extends React.Component {
 

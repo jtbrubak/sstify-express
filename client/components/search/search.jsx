@@ -5,6 +5,7 @@ import ArtistResults from './artist_results';
 import PlaylistResults from './playlist_results';
 import UserResults from './user_results';
 import AlbumResults from './album_results';
+import searchCss from '../../../public/stylesheets/search-css.css';
 
 class Search extends React.Component {
 

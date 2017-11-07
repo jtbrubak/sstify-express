@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import PlayControls from './play_controls';
 import ScrollBar from './scroll_bar';
 import shuffle from 'shuffle-array';
+import playbarCss from '../../../public/stylesheets/playbar-css.css';
 
 class Playbar extends React.Component {
 

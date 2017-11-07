@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import userCss from '../../../public/stylesheets/user-detail.css';
 
 class UserDetail extends React.Component {
 

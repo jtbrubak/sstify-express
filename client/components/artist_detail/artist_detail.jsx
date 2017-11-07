@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import artistCss from '../../../public/stylesheets/artist-detail.css'
 
 class ArtistDetail extends React.Component {
 

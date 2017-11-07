@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import PlaylistTracks from './playlist_tracks';
+import playlistCss from '../../../public/stylesheets/playlist-detail.css';
 
 class PlaylistDetail extends React.Component {
 

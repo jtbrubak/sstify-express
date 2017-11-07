@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import TrackList from './track_list';
+import albumCss from '../../../public/stylesheets/album-detail.css';
 
 class AlbumDetail extends React.Component {
 
