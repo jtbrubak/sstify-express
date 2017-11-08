@@ -1,10 +1,14 @@
-// Define schema
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var crypto = require('crypto');
 
-var SomeModelSchema = new Schema({
-    a_string: String,
-    a_date: Date
+var userSchema = new mongoose.Schema({
+    sessionToken: String
 });
 
-// Compile model from schema
-var SomeModel = mongoose.model('SomeModel', SomeModelSchema );
+userSchema.plugin(require('basic-auth-mongoose'));
+
+userSchema.post('init', function(doc) {
+  doc.sessionToken = crypto.randomBytes(16);
+});
+
+module.exports = mongoose.model('User', userSchema );
