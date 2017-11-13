@@ -9,7 +9,6 @@ var userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save', function(next) {
-  console.log('ENTERED PRE HOOK');
   bcrypt.hash(this.password, 10).then((hash) => {
     this.passwordHash = hash;
     uid(18).then((string) => {

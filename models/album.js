@@ -1,10 +1,16 @@
-// Define schema
-var Schema = mongoose.Schema;
+var aws = require('aws-sdk');
+aws.config.loadFromPath('../awsconfig.json');
 
-var SomeModelSchema = new Schema({
-    a_string: String,
-    a_date: Date
+var moongoose = require('mongoose');
+
+var AlbumSchema = new Schema({
+    title: String,
+    year: Number,
+    image_url: String
 });
 
-// Compile model from schema
-var SomeModel = mongoose.model('SomeModel', SomeModelSchema );
+userSchema.pre('save', function(next) {
+  
+});
+
+var Album = mongoose.model('Album', AlbumSchema );
