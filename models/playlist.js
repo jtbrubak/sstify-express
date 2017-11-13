@@ -7,4 +7,4 @@ var SomeModelSchema = new Schema({
 });
 
 // Compile model from schema
-var SomeModel = mongoose.model('SomeModel', SomeModelSchema );
+var SomeModel = mongoose.model('SomeModel', SomeModelSchema);

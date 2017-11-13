@@ -1,14 +1,23 @@
 var mongoose = require('mongoose');
-var crypto = require('crypto');
+var uid = require('uid-safe');
+var bcrypt = require('bcrypt');
 
 var userSchema = new mongoose.Schema({
+    username: String,
+    password: String,
     sessionToken: String
 });
 
-userSchema.plugin(require('basic-auth-mongoose'));
-
-userSchema.post('init', function(doc) {
-  doc.sessionToken = crypto.randomBytes(16);
+userSchema.pre('save', function(next) {
+  console.log('ENTERED PRE HOOK');
+  bcrypt.hash(this.password, 10).then((hash) => {
+    this.passwordHash = hash;
+    uid(18).then((string) => {
+      this.password = this.passwordHash;
+      this.sessionToken = string;
+      next();
+    }).catch((err) => console.log(err));
+  }).catch((err) => console.log(err));
 });
 
 module.exports = mongoose.model('User', userSchema );
