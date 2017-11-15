@@ -1,10 +1,9 @@
-// Define schema
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose');
 
-var SomeModelSchema = new Schema({
-    a_string: String,
-    a_date: Date
+var artistSchema = new mongoose.Schema({
+    name: String,
+    thumbUrl: String,
+    bannerUrl: String
 });
 
-// Compile model from schema
-var SomeModel = mongoose.model('SomeModel', SomeModelSchema );
+module.exports = mongoose.model('Artist', artistSchema );

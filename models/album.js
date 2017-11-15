@@ -1,16 +1,9 @@
-var aws = require('aws-sdk');
-aws.config.loadFromPath('../awsconfig.json');
+var mongoose = require('mongoose');
 
-var moongoose = require('mongoose');
-
-var AlbumSchema = new Schema({
+var albumSchema = new mongoose.Schema({
     title: String,
     year: Number,
-    image_url: String
+    imageUrl: String
 });
 
-userSchema.pre('save', function(next) {
-  
-});
-
-var Album = mongoose.model('Album', AlbumSchema );
+module.exports = mongoose.model('Album', albumSchema );

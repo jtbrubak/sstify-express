@@ -1,10 +1,7 @@
-// Define schema
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose');
 
-var PlaylistFollowSchema = new Schema({
-    a_string: String,
-    a_date: Date
+var playlistFollowSchema = new mongoose.Schema({
+
 });
 
-// Compile model from schema
-var PlaylistFollow = mongoose.model('PlaylistFollow', PlaylistFollowSchema);
+module.exports = mongoose.model('PlaylistFollow', playlistFollowSchema );
