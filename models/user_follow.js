@@ -2,8 +2,8 @@
 var Schema = mongoose.Schema;
 
 var UserFollowSchema = new Schema({
-    a_string: String,
-    a_date: Date
+    follower: { type: Schema.Types.ObjectId, ref: 'User' },
+    followed: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 // Compile model from schema
