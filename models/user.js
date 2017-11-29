@@ -5,7 +5,10 @@ var bcrypt = require('bcrypt');
 var userSchema = new mongoose.Schema({
     username: String,
     password: String,
-    sessionToken: String
+    sessionToken: String,
+    playlists: [{ type: Schema.Types.ObjectId, ref: 'Playlist' }],
+    followedPlaylists: [{ type: Schema.Types.ObjectId, ref: 'Playlist' }],
+    followedUsers: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 userSchema.pre('save', function(next) {
