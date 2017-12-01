@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var uid = require('uid-safe');
 var bcrypt = require('bcrypt');
+var Schema = mongoose.Schema;
 
-var userSchema = new mongoose.Schema({
-    username: String,
+var userSchema = new Schema({
+    username: { type: String, unique: true },
     password: String,
     sessionToken: String,
     playlists: [{ type: Schema.Types.ObjectId, ref: 'Playlist' }],
@@ -22,4 +23,4 @@ userSchema.pre('save', function(next) {
   }).catch((err) => console.log(err));
 });
 
-module.exports = mongoose.model('User', userSchema );
+module.exports = mongoose.model('User', userSchema);

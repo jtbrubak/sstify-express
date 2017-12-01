@@ -4,8 +4,8 @@ var path = require('path');
 var album_controller = require('../controllers/albumController');
 var artist_controller = require('../controllers/artistController');
 var playlist_controller = require('../controllers/playlistController');
-var playlist_track_controller = require('../controllers/playlistTrackController');
 var playlist_follow_controller = require('../controllers/playlistFollowController');
+var playlist_track_controller = require('../controllers/playlistTrackController');
 var search_controller = require('../controllers/searchController');
 var session_controller = require('../controllers/sessionController');
 var user_controller = require('../controllers/userController');
@@ -30,13 +30,13 @@ router.get('/api/playlists/:id', playlist_controller.show);
 router.post('/api/playlists', playlist_controller.create);
 router.delete('/api/playlists/:id', playlist_controller.destroy);
 
-// PLAYLIST TRACK ROUTES
-router.post('/api/playlist_tracks', playlist_track_controller.create);
-router.delete('/api/playlist_tracks/:id', playlist_track_controller.destroy);
-
 // PLAYLIST FOLLOW ROUTES
 router.post('/api/playlist_follows', playlist_follow_controller.create);
 router.delete('/api/playlist_follows/:id', playlist_follow_controller.destroy);
+
+// PLAYLIST TRACK ROUTES
+router.post('/api/playlist_tracks', playlist_track_controller.create);
+router.delete('/api/playlist_tracks/:id', playlist_track_controller.destroy);
 
 // SEARCH ROUTES
 router.get('/api/search', search_controller.index);

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var trackSchema = new mongoose.Schema({
+var trackSchema = new Schema({
     title: String,
     album: { type: Schema.Types.ObjectId, ref: 'Album' }
 });

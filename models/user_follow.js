@@ -1,4 +1,4 @@
-// Define schema
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserFollowSchema = new Schema({
@@ -6,5 +6,4 @@ var UserFollowSchema = new Schema({
     followed: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
-// Compile model from schema
 var UserFollow = mongoose.model('UserFollow', UserFollowSchema );

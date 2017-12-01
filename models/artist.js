@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var artistSchema = new mongoose.Schema({
+var artistSchema = new Schema({
     name: String,
     thumbUrl: String,
     bannerUrl: String,
