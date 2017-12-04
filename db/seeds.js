@@ -30,18 +30,31 @@ function addArtist(name, thumbUrl, bannerUrl) {
   });
 }
 
-function addAlbum(title, year, imageUrl) {
+function addAlbum(title, year, imageUrl, artistName) {
   var album = new Album({ title, year, imageUrl });
-  album.markModified('object');
-  album.save(function(err) {
+  Artist.findOne({ 'name': artistName }, (err, result) => {
     if (err) { return; }
+    album.artist = result._id;
+    album.markModified('object');
+    album.save((err) => {
+      if (err) { return; }
+      result.albums.push(album._id);
+      result.save((err) => {
+        console.log('SAVED');
+      });
+    });
   });
 }
 
-function addTrack(title) {
-  var track = new Track({ title });
+function addTrack(title, audioUrl) {
+  var track = new Track({ title, audioUrl });
   track.markModified('object');
   track.save(function(err) {
     if (err) { return; }
   });
 }
+
+// addUser();
+// addArtist('Black Flag', 'https://s3.amazonaws.com/sstify-pro/artists/images/000/000/019/thumb/black_flag.jpg', 'https://s3.amazonaws.com/sstify-pro/artists/images/000/000/019/banner/black_flag.jpg');
+// addAlbum('Damaged', 1983, 'https://s3.amazonaws.com/sstify-dev/seeds/albums/damaged.jpg', 'Black Flag');
+addTrack('Rise Above', 'https://s3.amazonaws.com/sstify-dev/seeds/tracks/Damaged/01+rise+above.mp3');
