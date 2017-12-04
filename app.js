@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('client-sessions');
 
 var index = require('./routes/index');
 
@@ -38,6 +39,13 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+app.use(session({
+  cookieName: 'session',
+  secret: 'h83hfla9471kfhal9',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
 
 // error handler
 app.use(function(err, req, res, next) {

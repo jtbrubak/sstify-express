@@ -42,7 +42,6 @@ router.delete('/api/playlist_tracks/:id', playlist_track_controller.destroy);
 router.get('/api/search', search_controller.index);
 
 // SESSION ROUTES
-router.get('/api/session', session_controller.show);
 router.post('/api/session', session_controller.create);
 router.delete('/api/session', session_controller.destroy);
 
