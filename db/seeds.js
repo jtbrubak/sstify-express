@@ -2,6 +2,7 @@ var User = require('../models/user.js');
 var Album = require('../models/album.js');
 var Track = require('../models/track.js');
 var Artist = require('../models/artist.js')
+var id3 = require("jsmediatags");
 var async = require('async');
 
 var mongoose = require('mongoose');
@@ -46,15 +47,37 @@ function addAlbum(title, year, imageUrl, artistName) {
   });
 }
 
-function addTrack(title, audioUrl) {
-  var track = new Track({ title, audioUrl });
-  track.markModified('object');
-  track.save(function(err) {
-    if (err) { return; }
-  });
+function addTrack(audioUrl, length) {
+  var track = new Track({ audioUrl, length });
+  id3.read(track.audioUrl, {
+    onSuccess: (tags) => {
+      track.title = tags.tags.title;
+      track.albumOrd = tags.tags.track;
+      Album.findOne({ title: tags.tags.album }).
+      populate('artist').
+      exec(function (err, albumResult) {
+        if (err) { throw err; }
+        track.album = albumResult._id;
+        track.markModified('object');
+        Artist.findOne({ '_id': albumResult.artist._id }, (err, artistResult) => {
+          if (err) { throw err; }
+          track.save((err) => {
+            if (err) { throw err; }
+            albumResult.tracks.push(track._id);
+            artistResult.tracks.push(track._id);
+            albumResult.save();
+            artistResult.save();
+          });
+        });
+      });
+    },
+    onError: (err) => {
+      console.log('UNSUCCESS');
+    }
+  })
 }
 
 // addUser();
 // addArtist('Black Flag', 'https://s3.amazonaws.com/sstify-pro/artists/images/000/000/019/thumb/black_flag.jpg', 'https://s3.amazonaws.com/sstify-pro/artists/images/000/000/019/banner/black_flag.jpg');
 // addAlbum('Damaged', 1983, 'https://s3.amazonaws.com/sstify-dev/seeds/albums/damaged.jpg', 'Black Flag');
-addTrack('Rise Above', 'https://s3.amazonaws.com/sstify-dev/seeds/tracks/Damaged/01+rise+above.mp3');
+// addTrack('https://s3.amazonaws.com/sstify-dev/seeds/tracks/Damaged/01+rise+above.mp3', 146);
