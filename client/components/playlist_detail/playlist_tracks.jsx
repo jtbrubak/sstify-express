@@ -23,7 +23,6 @@ class PlaylistTracks extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.playlist.tracks) {
       return (
         <div className="track-list">

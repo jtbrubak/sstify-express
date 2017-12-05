@@ -3,20 +3,24 @@ var views = require('../views/artist');
 
 exports.show = function(req, res) {
   Artist.findById(req.params.id)
-  .populate({ path: 'albums', populate: { path: 'tracks' } })
   .exec((err, result) => {
     if (err) { res.send(err); }
-    var jsonResponse = views.show(result);
-    res.json(jsonResponse);
+    Album.find({ artist: req.params.id }, (err2, albums) => {
+      if (err2) { res.send(err); }
+      Track.find({ album: albums[0]._id })
+      .populate('album')
+      .exec((err3, tracks) => {
+        if (err3) { res.send(err); }
+        var jsonResponse = views.show(result, albums, tracks);
+        res.json(jsonResponse);
+      })
+    })
   });
 };
 
 exports.index = function(req, res) {
-  Artist.find({})
-  .populate('albums tracks')
-  .exec((err, result) => {
+  Artist.find({}, (err, artists) => {
     if (err) { res.send(err); }
-    var jsonResponse = views.index(result);
-    res.json(jsonResponse);
+    res.json(views.index(artists));
   });
 };

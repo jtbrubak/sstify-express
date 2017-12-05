@@ -26,18 +26,20 @@ userSchema.pre('save', function(next) {
 userSchema.methods.resetSessionToken = function() {
   uid(18).then((string) => {
     this.sessionToken = string;
+    this.save();
   })
 }
 
-userSchema.statics.findByCredentials = function(username, password) {
-  user = this.find({ username: username });
-  bcrypt.compare(password, user.sessionToken, (err, res) => {
-    if (res) {
-      return user;
-    } else {
-      return null;
-    }
-  })
+userSchema.statics.findByCredentials = function (username, password, cb) {
+  return this.findOne({ username: username }, (err, user) => {
+    bcrypt.compare(password, user.password, (err, res) => {
+      if (res) {
+        cb(user);
+      } else {
+        cb(null);
+      }
+    })
+  });
 }
 
 module.exports = mongoose.model('User', userSchema);

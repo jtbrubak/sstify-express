@@ -4,11 +4,9 @@ var Track = require('./track');
 var Album = require('./album');
 
 var artistSchema = new Schema({
-    name: String,
-    thumbUrl: String,
-    bannerUrl: String,
-    albums: [{ type: Schema.Types.ObjectId, ref: 'Album' }],
-    tracks: [{ type: Schema.Types.ObjectId, ref: 'Track' }]
+    name: { type: String, required: true },
+    thumbUrl: { type: String, required: true },
+    bannerUrl: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Artist', artistSchema );

@@ -14,11 +14,7 @@ class ArtistDetail extends React.Component {
   }
 
   handleButton() {
-    let tracks = [];
-    this.props.artistDetail.albums.forEach((album) => {
-      tracks = tracks.concat(album.tracks);
-    });
-    this.props.updateNowPlaying({ played: [], queue: tracks });
+    this.props.updateNowPlaying({ played: [], queue: this.props.artistDetail.tracks });
   }
 
   renderBanner(artist) {

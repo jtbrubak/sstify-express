@@ -15,7 +15,7 @@ exports.index = function(result) {
   })
 }
 
-exports.show = function(result) {
+exports.show = function(result, tracks) {
   return {
     id: result._id,
     title: result.title,
@@ -25,7 +25,7 @@ exports.show = function(result) {
       name: result.artist.name,
       id: result.artist._id
     },
-    tracks: result.tracks.map((track) => {
+    tracks: tracks.map((track) => {
       return {
         title: track.title,
         album_ord: track.albumOrd,

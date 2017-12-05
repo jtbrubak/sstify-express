@@ -1,8 +1,9 @@
 var User = require('../models/user');
 
 exports.currentUser = function(req) {
-  var user = User.find({ sessionToken: req.session.sessionToken });
-  return user;
+  User.findOne({ sessionToken: req.session.sessionToken }, (user) => {
+    return user;
+  });
 }
 
 exports.logged_in = function() {
@@ -16,10 +17,12 @@ exports.logged_in = function() {
 
 exports.login = function(req, user) {
   user.resetSessionToken();
-  req.session.sessionToken = req.user.sessionToken;
+  req.session.sessionToken = user.sessionToken;
 }
 
 exports.logout = function(req) {
-  currentUser().resetSessionToken();
-  req.session.sessionToken = null;
+  User.findOne({ sessionToken: req.session.sessionToken }, (err, user) => {
+    user.resetSessionToken();
+    req.session.sessionToken = null;
+  });
 }
