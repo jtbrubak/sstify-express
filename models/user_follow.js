@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var User = require('./user');
 
 var UserFollowSchema = new Schema({
-    follower: { type: Schema.Types.ObjectId, ref: 'User' },
-    followed: { type: Schema.Types.ObjectId, ref: 'User' }
+    follower: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    followed: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 });
 
-var UserFollow = mongoose.model('UserFollow', UserFollowSchema );
+module.exports = mongoose.model('UserFollow', UserFollowSchema );

@@ -1,25 +1,25 @@
 var User = require('../models/user');
 
-exports.show = function(response) {
+exports.show = function(response, playlists, followedPlaylists, followedUsers) {
   return {
     username: response.username,
     id: response._id,
-    playlists: response.playlists.map((playlist) => {
+    playlists: playlists.map((playlist) => {
       return {
         id: playlist._id,
         title: playlist.title
       }
     }),
-    followed_playlists: response.followedPlaylists.map((playlist) => {
+    followed_playlists: followedPlaylists.map((playlist) => {
       return {
-        id: playlist._id,
-        title: playlist.title
+        id: playlist.playlist._id,
+        title: playlist.playlist.title
       }
     }),
-    followed_users: response.followedUsers.map((user) => {
+    followed_users: followedUsers.map((user) => {
       return {
-        id: user._id,
-        username: user.username
+        id: user.followed._id,
+        username: user.followed.username
       }
     })
   }

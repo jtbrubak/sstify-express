@@ -1,7 +1,20 @@
+var User = require('../models/user');
+var UserFollow = require('../models/user_follow');
+
 exports.create = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author list');
+  var userFollow = new UserFollow({
+    follower: req.query.follower,
+    followed: req.query.followed });
+  userFollow.save((err) => {
+    if (err) { res.send(err); }
+    res.send('CREATED');
+  })
 };
 
 exports.destroy = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author list');
+  var userFollow = UserFollow.findById(req.params.id);
+  userFollow.remove((err) => {
+    if (err) { res.send(err); }
+    res.send('DELETED');
+  })
 };
