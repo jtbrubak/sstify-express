@@ -78,7 +78,7 @@ function addTrack(audioUrl, length) {
   })
 }
 
-// addUser();
+addUser();
 // addArtist('Black Flag', 'https://s3.amazonaws.com/sstify-pro/artists/images/000/000/019/thumb/black_flag.jpg', 'https://s3.amazonaws.com/sstify-pro/artists/images/000/000/019/banner/black_flag.jpg');
 // addAlbum('Damaged', 1983, 'https://s3.amazonaws.com/sstify-dev/seeds/albums/damaged.jpg', 'Black Flag');
 // addTrack('https://s3.amazonaws.com/sstify-dev/seeds/tracks/Damaged/01+rise+above.mp3', 146);

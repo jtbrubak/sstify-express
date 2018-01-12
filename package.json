@@ -25,6 +25,7 @@
     "jsmediatags": "^3.8.1",
     "mongodb": "^2.2.33",
     "mongoose": "^4.12.6",
+    "mongoose-lifecycle": "^1.0.0",
     "morgan": "~1.9.0",
     "musicmetadata": "^2.0.5",
     "papercut": "0.0.6",

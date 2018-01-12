@@ -10,14 +10,19 @@ var userSchema = new Schema({
 });
 
 userSchema.pre('validate', function(next) {
-  bcrypt.hash(this.password, 10).then((hash) => {
-    this.passwordHash = hash;
-    uid(18).then((string) => {
-      this.password = this.passwordHash;
-      this.sessionToken = string;
-      next();
+  debugger
+  if (this.isNew) {
+    bcrypt.hash(this.password, 10).then((hash) => {
+      console.log(hash);
+      this.passwordHash = hash;
+      uid(18).then((string) => {
+        this.password = this.passwordHash;
+        this.sessionToken = string;
+        next();
+      }).catch((err) => console.log(err));
     }).catch((err) => console.log(err));
-  }).catch((err) => console.log(err));
+  }
+  else { next(); }
 });
 
 userSchema.methods.resetSessionToken = function() {
