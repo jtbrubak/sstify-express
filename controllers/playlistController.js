@@ -30,7 +30,7 @@ exports.show = function(req, res) {
 };
 
 exports.create = function(req, res) {
-  var playlist = new Playlist({ title: req.query.title, user: req.query.userId });
+  var playlist = new Playlist({ title: req.body['playlist[title]'], user: req.body['playlist[userId]'] });
   playlist.save((err) => {
     if (err) { res.send(err); }
     res.json(views.show(playlist, []));
