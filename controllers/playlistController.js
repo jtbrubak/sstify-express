@@ -22,7 +22,6 @@ exports.show = function(req, res) {
       }
     })
     .exec((err2, playlistTracks) => {
-      debugger
       var jsonResponse = views.show(result, playlistTracks);
       res.json(jsonResponse);
     })

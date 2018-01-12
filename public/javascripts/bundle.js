@@ -31497,11 +31497,7 @@ var ArtistDetail = function (_React$Component) {
   }, {
     key: 'handleButton',
     value: function handleButton() {
-      var tracks = [];
-      this.props.artistDetail.albums.forEach(function (album) {
-        tracks = tracks.concat(album.tracks);
-      });
-      this.props.updateNowPlaying({ played: [], queue: tracks });
+      this.props.updateNowPlaying({ played: [], queue: this.props.artistDetail.tracks });
     }
   }, {
     key: 'renderBanner',
@@ -31957,7 +31953,6 @@ var PlaylistTracks = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      debugger;
       if (this.props.playlist.tracks) {
         return _react2.default.createElement(
           'div',

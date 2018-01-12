@@ -4,7 +4,6 @@ var User = require('../models/user');
 var async = require('async');
 
 exports.create = function(req, res) {
-  debugger
   User.findByCredentials(req.body['user[username]'], req.body['user[password]']
 , (user) => {
     if (user !== null && user !== undefined) {

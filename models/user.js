@@ -9,7 +9,7 @@ var userSchema = new Schema({
     sessionToken: { type: String, required: true }
 });
 
-userSchema.pre('save', function(next) {
+userSchema.pre('validate', function(next) {
   bcrypt.hash(this.password, 10).then((hash) => {
     this.passwordHash = hash;
     uid(18).then((string) => {

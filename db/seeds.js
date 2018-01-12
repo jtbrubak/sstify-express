@@ -19,7 +19,8 @@ function addUser() {
   var user = new User({ username: 'guest', password: 'password' });
   user.markModified('object');
   user.save(function(err) {
-    if (err) { return; }
+    if (err) { console.log(err); }
+    else { console.log('SAVED') }
   });
 }
 
