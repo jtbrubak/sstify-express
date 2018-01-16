@@ -5,7 +5,7 @@ import ArtistDetail from './artist_detail';
 
 const mapStateToProps = (state, ownProps) => ({
   artistDetail: state.artistDetail,
-  id: parseInt(ownProps.params.id)
+  id: ownProps.params.id
 });
 
 const mapDispatchToProps = (dispatch) => ({

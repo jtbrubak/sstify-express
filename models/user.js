@@ -10,7 +10,6 @@ var userSchema = new Schema({
 });
 
 userSchema.pre('validate', function(next) {
-  debugger
   if (this.isNew) {
     bcrypt.hash(this.password, 10).then((hash) => {
       console.log(hash);
