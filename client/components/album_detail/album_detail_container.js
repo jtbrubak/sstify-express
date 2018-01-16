@@ -6,7 +6,7 @@ import AlbumDetail from './album_detail';
 
 const mapStateToProps = (state, ownProps) => ({
   albumDetail: state.albumDetail,
-  id: parseInt(ownProps.params.id),
+  id: ownProps.params.id,
   currentUser: state.session.currentUser,
   currentUserDetail: state.currentUserDetail
 });

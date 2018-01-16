@@ -8,7 +8,7 @@ import PlaylistDetail from './playlist_detail';
 
 const mapStateToProps = (state, ownProps) => ({
   playlistDetail: state.playlistDetail,
-  id: parseInt(ownProps.params.id),
+  id: ownProps.params.id,
   currentUser: state.session.currentUser,
   currentUserDetail: state.currentUserDetail
 });

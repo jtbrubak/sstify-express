@@ -30996,7 +30996,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     albumDetail: state.albumDetail,
-    id: parseInt(ownProps.params.id),
+    id: ownProps.params.id,
     currentUser: state.session.currentUser,
     currentUserDetail: state.currentUserDetail
   };
@@ -31632,7 +31632,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     playlistDetail: state.playlistDetail,
-    id: parseInt(ownProps.params.id),
+    id: ownProps.params.id,
     currentUser: state.session.currentUser,
     currentUserDetail: state.currentUserDetail
   };
@@ -32092,7 +32092,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     currentUserDetail: state.currentUserDetail,
     currentUser: state.session.currentUser,
     userDetail: state.userDetail,
-    id: parseInt(ownProps.params.id)
+    id: ownProps.params.id
   };
 };
 
@@ -32312,7 +32312,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     userDetail: state.userDetail,
-    id: parseInt(ownProps.params.id)
+    id: ownProps.params.id
   };
 };
 
@@ -32429,7 +32429,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     userDetail: state.userDetail,
-    id: parseInt(ownProps.params.id)
+    id: ownProps.params.id
   };
 };
 
@@ -32546,7 +32546,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     userDetail: state.userDetail,
-    id: parseInt(ownProps.params.id)
+    id: ownProps.params.id
   };
 };
 

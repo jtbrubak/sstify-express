@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
   currentUserDetail: state.currentUserDetail,
   currentUser: state.session.currentUser,
   userDetail: state.userDetail,
-  id: parseInt(ownProps.params.id)
+  id: ownProps.params.id
 });
 
 const mapDispatchToProps = (dispatch) => ({

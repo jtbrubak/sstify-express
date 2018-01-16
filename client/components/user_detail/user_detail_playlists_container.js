@@ -4,7 +4,7 @@ import UserDetailPlaylists from './user_detail_playlists';
 
 const mapStateToProps = (state, ownProps) => ({
   userDetail: state.userDetail,
-  id: parseInt(ownProps.params.id)
+  id: ownProps.params.id
 });
 
 const mapDispatchToProps = (dispatch) => ({

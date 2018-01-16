@@ -4,7 +4,7 @@ import UserDetailFollowedUsers from './user_detail_followed_users';
 
 const mapStateToProps = (state, ownProps) => ({
   userDetail: state.userDetail,
-  id: parseInt(ownProps.params.id)
+  id: ownProps.params.id
 });
 
 const mapDispatchToProps = (dispatch) => ({
