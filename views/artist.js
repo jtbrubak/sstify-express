@@ -19,7 +19,11 @@ exports.show = function(result, albums, tracks) {
       return {
         title: album.title,
         id: album._id,
-        image_url: album.imageUrl
+        image_url: album.imageUrl,
+        artist: {
+          id: result._id,
+          name: result.name,
+        }
       }
     }),
     tracks: tracks.map((track) => {

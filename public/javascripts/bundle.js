@@ -35656,8 +35656,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _artist_actions = __webpack_require__(144);
 
+var artistDefault = {
+  name: undefined,
+  image_url: undefined,
+  albums: []
+};
+
 var ArtistReducer = function ArtistReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : artistDefault;
   var action = arguments[1];
 
   Object.freeze(state);
