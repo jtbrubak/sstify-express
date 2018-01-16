@@ -1,4 +1,6 @@
 var Artist = require('../models/artist');
+var Album = require('../models/album');
+var Track = require('../models/track');
 var views = require('../views/artist');
 
 exports.show = function(req, res) {
